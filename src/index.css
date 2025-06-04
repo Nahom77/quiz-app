@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+body {
+  background: url(../public/pattern-background-desktop-dark.svg);
+  background-repeat: no-repeat;
+  background-color: #313e51;
+}
