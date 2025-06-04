@@ -79,4 +79,4 @@ I think it will be fun to continue working on this assignment as an on going pro
 
 ## Author
 
-- Frontend Mentor - [@rainSax](https://www.frontendmentor.io/profile/Nahom77)
+- Frontend Mentor - [@Nahom_Tigistu](https://www.frontendmentor.io/profile/Nahom77)

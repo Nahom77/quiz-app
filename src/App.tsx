@@ -7,8 +7,12 @@ import Options from "./components/Options";
 import Questions from "./components/Questions";
 import ShowResult from "./components/ShowResult";
 
+// interface Quiz {
+//   quizzes: [];
+// }
+
 function App() {
-  const [quizzess, setQuizzes] = useState([]);
+  const [quizzess, setQuizzes] = useState({ quizzes: [] });
   const { quizzes } = quizzess;
 
   useEffect(() => {
@@ -76,12 +80,7 @@ function App() {
         {/* If there is selected title render questions otherwise render landing page */}
         {selectedTitle ? (
           <>
-            <Questions
-              question={myQuestions}
-              quizzes={quizzes}
-              nextQue={nextQue}
-              selectedTitle={selectedTitle}
-            />
+            <Questions question={myQuestions} nextQue={nextQue} />
             <Options
               question={myQuestions}
               quizzes={quizzes}
@@ -95,8 +94,12 @@ function App() {
           <>
             <LandingPage />{" "}
             <Options
+              question={myQuestions}
+              selectedTitle={selectedTitle}
               quizzes={quizzes}
+              nextQuestion={nextQuestion}
               getOptionsContent={handleOptionsContent}
+              countCorrectAns={countCorrectAns}
             />
           </>
         )}

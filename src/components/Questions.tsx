@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+interface Question {
+  question: string;
+}
 
 interface Props {
-  questionsCount: number;
-  question: string[];
+  question: Question[];
   nextQue: number;
 }
 

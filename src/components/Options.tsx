@@ -1,10 +1,19 @@
 import { useState } from "react";
 import Button from "./Button";
 
+interface Quiz {
+  icon: string;
+  title: string;
+}
+interface Question {
+  question: string;
+  answer: string;
+  options: string[];
+}
 interface Props {
-  quizzes: string[];
+  quizzes: Quiz[];
   selectedTitle: string;
-  question: string[];
+  question: Question[];
   nextQuestion: (count: Number) => void;
   getOptionsContent: (title: string) => void;
   countCorrectAns: (ans: number) => void;
@@ -28,13 +37,13 @@ const Options = ({
   const choiceLetters = ["A", "B", "C", "D"];
 
   // receiving the text content from the button
-  function HandleGetAnswers(ans = "", index = "") {
+  function HandleGetAnswers(ans = "", index) {
     setReceivedAns(ans);
-    setSelectedIndex(index);
+    setSelectedIndex(Number(index));
   }
 
   // If the user selects the wrong answer to show him the right answer
-  const showCorrectAnsAfterSubmit = function (el, i) {
+  const showCorrectAnsAfterSubmit = function (el) {
     if (!submittedAns) return;
 
     return question[questionsCount]?.answer === el
@@ -43,7 +52,7 @@ const Options = ({
   };
 
   // To show the user what he chooses is right or wrong
-  function showCorrectAns(i = -1) {
+  function showCorrectAns(i) {
     if (isCorrect === "correct" && i === selectedIndex) {
       return "border-green-500 border-3";
     } else if (isCorrect === "wrong" && i === selectedIndex) {
@@ -91,7 +100,7 @@ const Options = ({
                 submittedAns={submittedAns}
               >
                 <div
-                  className={`${showCorrectAns(i)} ${showCorrectAnsAfterSubmit(el, i)} ${selectedIndex === i ? "border-2 border-[#a629f6]" : ""} flex w-[100%] items-center space-x-4 rounded-xl p-2.5`}
+                  className={`${showCorrectAns(i)} ${showCorrectAnsAfterSubmit(el)} ${selectedIndex === i ? "border-2 border-[#a629f6]" : ""} flex w-[100%] items-center space-x-4 rounded-xl p-2.5`}
                 >
                   <div className="flex h-[50px] w-[50px] items-center justify-center rounded-lg bg-amber-50">
                     <h1 className="text-2xl text-black">{choiceLetters[i]}</h1>
@@ -119,8 +128,13 @@ const Options = ({
               ))}
           </>
         ) : (
-          quizzes.map((el) => (
-            <Button key={el.title} getOptionsContent={getOptionsContent}>
+          quizzes.map((el, i) => (
+            <Button
+              key={el.title}
+              index={i}
+              submittedAns={submittedAns}
+              getOptionsContent={getOptionsContent}
+            >
               <div
                 className={`flex w-[100%] items-center space-x-4 rounded-xl p-2.5`}
               >

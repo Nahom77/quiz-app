@@ -6,8 +6,12 @@
 // --otherTextsDark2: #c5b2c7;
 import { useState } from "react";
 
+interface Quiz {
+  icon: string;
+  title: string;
+}
 interface Props {
-  quizzes: string[];
+  quizzes: Quiz;
   selectedTitle: string;
 }
 

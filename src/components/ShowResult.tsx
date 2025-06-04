@@ -1,7 +1,10 @@
-import React from "react";
+interface Quiz {
+  icon: string;
+  title: string;
+}
 
 interface Props {
-  quizzes: string[];
+  quizzes: Quiz;
   corrAnsewers: number;
   nextQuestion: (num: number) => void;
   countCorrectAns: (num: number) => void;
