@@ -7,10 +7,6 @@ import Options from "./components/Options";
 import Questions from "./components/Questions";
 import ShowResult from "./components/ShowResult";
 
-// interface Quiz {
-//   quizzes: [];
-// }
-
 function App() {
   const [quizzess, setQuizzes] = useState({ quizzes: [] });
   const { quizzes } = quizzess;
