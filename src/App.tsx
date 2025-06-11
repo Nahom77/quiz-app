@@ -7,19 +7,25 @@ import Options from "./components/Options";
 import Questions from "./components/Questions";
 import ShowResult from "./components/ShowResult";
 
+// /////////////////////////////////////////////////////////
+//  If you need run this app locally change               //
+//    entry of this app on './data.json'                  //
+//     into 'quiz-app/data.json'                          //
+// /////////////////////////////////////////////////////////
+
 function App() {
   const [quizzess, setQuizzes] = useState({ quizzes: [] });
   const { quizzes } = quizzess;
 
   useEffect(() => {
-    axios.get("quiz-app/data.json").then((res) => {
+    axios.get(`./data.json`).then((res) => {
       setQuizzes(res.data);
     });
   }, []);
 
   const [selectedTitle, setSelectedTitle] = useState("");
-  let [nextQue, setNextQue] = useState(0);
-  let [corrAns, setCorrAns] = useState(0);
+  const [nextQue, setNextQue] = useState(0);
+  const [corrAns, setCorrAns] = useState(0);
   // let [questionsCount, setQuestionsCount] = useState(0);
 
   // To store the correct ansewer received from 'Options'

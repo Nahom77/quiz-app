@@ -39,7 +39,7 @@ const Nav = ({ quizzes, selectedTitle }: Props) => {
         ""
       )}
       <div className="ml-[auto] flex space-x-2.5">
-        <img src="quiz-app/icon-sun-light.svg" alt="" />
+        <img src="./icon-sun-light.svg" alt="" />
         <label className="relative h-[34px] w-[60px]">
           <input
             //Controlling the state of checkbox to toggle for the theme
@@ -55,7 +55,7 @@ const Nav = ({ quizzes, selectedTitle }: Props) => {
             } absolute top-0 right-0 bottom-0 left-0 cursor-pointer rounded-4xl bg-[#77757577] before:absolute before:bottom-[4px] before:left-[4px] before:h-[26px] before:w-[26px] before:rounded-[50px] before:bg-amber-50 before:duration-[0.4s]`}
           ></span>
         </label>
-        <img src="quiz-app/icon-moon-light.svg" alt="" />
+        <img src="./icon-moon-light.svg" alt="" />
       </div>
     </div>
   );
