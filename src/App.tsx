@@ -18,7 +18,7 @@ function App() {
   const { quizzes } = quizzess;
 
   useEffect(() => {
-    axios.get(`./data.json`).then((res) => {
+    axios.get("./data.json").then((res) => {
       setQuizzes(res.data);
     });
   }, []);
