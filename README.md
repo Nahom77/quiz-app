@@ -43,7 +43,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Solution URL](https://github.com/Nahom77/quiz-app)
-- Live Site URL: [Live site URL](https://Nahom77.github.io/quiz-app)
+- Live Site URL: [Live site URL](https://quiz-app-by-nahom.netlify.app/)
 
 ## My process
 
